@@ -2,7 +2,7 @@
 
 using namespace std;
 
-
+bool is cool
 
 int main()
 {
