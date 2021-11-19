@@ -6,60 +6,172 @@ void swap(int &a, int &b);
 
 void incersion(int A[]);
 
-bool trip(int a[]);
+bool check(int A[]);
 
-bool quad(int a[]);
+bool quad(int A[]);
 
-bool full(int a[]);
+bool full(int A[]);
 
-bool small(int a[]);
+bool small(int A[]);
 
-bool large(int a[]);
+bool large(int A[]);
 
-bool yahtzee(int a[]);
+bool yahtzee(int A[]);
 
-int chance(int a[]);
-
-int add(int a[]);
+int chance(int A[]);
 
 int main()
 {
-	srand(time(NULL));
+	string player1;
+	string player2;
+	int pp1 = 0;
+	int pp2 = 0;
+	char con;
 
-	int roll[5];
+	cout << "Enter in the first player's name: " << endl;
+	cin >> player1;
 
-	for(int i = 0; i < 5; i++)
+	cout << " Enter in the secind player's name: " << endl;
+	cin >> player2;
+
+	for(int i = 0; i > 13; i++)
 	{
-		numGen[i] = rand()%6+1;
+		cout << "Now it's " << player1 << "'s turn." << endl;
 
-		cout << numGen[i] << endl;
+		srand(time(NULL));
+
+		int roll1[5];
+
+		for(int i = 0; i < 5; i++)
+		{
+			roll1[i] = rand()%6+1;
+
+			cout << roll1[i] << endl;
+		}
+
+		cout << "Dice sorted: ";
+
+		incersion(roll1);
+
+		for(int i = 0; i < 5; i++)
+		{
+			cout << roll[i] << endl;
+		}
+
+	  if(trip(roll1) == true)
+	  {
+	    cout << "You have rolled a 3 of a Kind." << endl;
+			chance(roll1) == pp1;
+			cout << pp1 << "points!" << endl;
+	  }
+	  else if(quad(roll1) == true)
+	  {
+	    cout << "You have rolled a 4 of a Kind." << endl;
+			chance(roll1) == pp1;
+			cout << pp1 << "points!" << endl;
+	  }
+	  else if(small(roll1) == true)
+	  {
+	    cout << "You have rolled a small straight" << endl;
+			pp1 = 30+pp1;
+			cout << pp1 << "points!" << endl;
+	  }
+	  else if(large(roll1) == true)
+	  {
+			cout << "You have rolled a large straight" << endl;
+			pp1 = 40+ pp1;
+			cout << pp1 << "points!" << endl;
+		}
+		else if(full(roll1) == true)
+		{
+			cout << "You have rolled a full house" << endl;
+			pp1 = pp1+25;
+			cout << pp1 << "points!" << endl;
+		}
+		else if(yahtzee(roll1)== true)
+		{
+			cout << "You have rolled a YAHTZEE!!!!!" << endl;
+			pp1 = pp1+50;
+			cout << pp1 << "points!" << endl;
+		}
+		else
+		{
+			cout << "You have rolled nothing." << endl;
+			chance(roll1) == pp1;
+			cout << pp1 << "points!" << endl;
+		}
+
+		cout << "Now it's " << player2 << "'s turn." << endl;
+
+		int roll2[5];
+
+		for(int i = 0; i < 5; i++)
+		{
+			roll2[i] = rand()%6+1;
+
+			cout << roll2[i] << endl;
+		}
+
+		cout << "Dice sorted: ";
+
+		incersion(roll2);
+
+		for(int i = 0; i < 5; i++)
+		{
+			cout << roll2[i] << endl;
+		}
+
+	  if(trip(roll2) == true)
+	  {
+	    cout << "You have rolled a 3 of a Kind." << endl;
+			chance(roll2[]) == pp2;
+			cout << pp2 << "points!" << endl;
+	  }
+	  else if(quad(roll2) == true)
+	  {
+	    cout << "You have rolled a 4 of a Kind." << endl;
+			chance(roll2) == pp2;
+			cout << pp2 "points!" << endl;
+	  }
+	  else if(small(roll2) == true)
+	  {
+	    cout << "You have rolled a small straight" << endl;
+			pp2 = 30+pp2;
+			cout << pp2 << "points!" << endl;
+	  }
+	  else if(large(roll2) == true)
+	  {
+			cout << "You have rolled a large straight" << endl;
+			pp2 = 40+ pp2;
+			cout << pp2 << "points!" << endl;
+		}
+		else if(full(roll2) == true)
+		{
+			cout << "You have rolled a full house" << endl;
+			pp2 = pp2+25;
+			cout << pp2 "points!" << endl;
+		}
+		else if(yahtzee(roll2)== true)
+		{
+			cout << "You have rolled a YAHTZEE!!!!!" << endl;
+			pp2 = pp2+50;
+			cout << pp2 << "points!" << endl;
+		}
+		else
+		{
+			cout << "You have rolled nothing." << endl;
+			chance(roll2) == pp2;
+			cout << pp2 << "points!" << endl;
+		}
+		cout << "Are you ready to play the next round? (y/n)"
+		cin >> con;
+		while(con != y)
+		{
+			cout << "how about now: ";
+			cin >> con;
+		}
 	}
-
-	cout << "Dice sorted: ";
-
-	incersion(numGen);
-
-	for(int i = 0; i < 5; i++)
-	{
-		cout << numGen[i] << endl;
-	}
-
-  if((roll[0] == roll[2]) || (roll[1] == roll[3]) || (roll[2] == roll[4]) )
-  {
-    trip()
-    cout << "You have rolled a 3 of a Kind." << endl << add() << " points!" << endl;
-  }
-  else if((roll[0] == roll[3]) || (roll[1] == roll[4]) )
-  {
-    cout << "You have rolled a 4 of a Kind." << endl << add() << " points!" << endl;
-  }
-  else if(roll[0] == roll[4])
-  {
-    cout << "You have rolled a 3 of a Kind." << endl << add() << " points!" << endl;
-  }
-  else if
-  )
-
+	cout << "Thanks for playing" << endl;
 	return 0;
 }
 
@@ -84,48 +196,79 @@ void incersion(int A[])
 	}
 }
 
-bool trip(int a, int b, int c, int d, int e)
+bool trip(A[])
 {
-
+	if(A[0]==A[2] || A[1] == A[3] || A[2] == A[4])
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
-bool quad(int a, int b, int c, int d, int e)
+bool quad(A[])
 {
-
+	if(A[0]==A[3] || A[1] == A[4])
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
-bool full(int a, int b, int c, int d, int e)
+bool full(A[])
 {
-
+	if(A[0]==A[4])
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
-bool small(int a, int b, int c, int d, int e)
+bool small(A[])
 {
-
+	if(A[0]==A[0+3] || A[1] == A[1+3] || A[2] == A[2+3])
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
-bool large(int a, int b, int c, int d, int e)
+bool large(A[])
 {
-
+	if(A[0]==A[3] || A[1] == A[4])
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
-bool yahtzee(int a, int b, int c, int d, int e)
+bool yahtzee(A[])
 {
-
+	if(A[0]==A[4])
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
-int chance(int a, int b, int c, int d, int e)
+int chance(A[])
 {
-  int g;
-  a+b+c+d+e = g;
-
-  return g;
-}
-
-int add(int a, int b, int c, int d, int e)
-{
-  int g;
-  a+b+c+d+e = g;
-
-  return g;
+	return A[0]+A[1]+A[2]+A[3]+A[4];
 }
