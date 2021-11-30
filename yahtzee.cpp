@@ -4,21 +4,21 @@ using namespace std;
 
 void swap(int &a, int &b);
 
-void incersion(int A[]);
+void incersion(int dice[]);
 
-bool check(int A[]);
+bool trip(int dice[]);
 
-bool quad(int A[]);
+bool quad(int dice[]);
 
-bool full(int A[]);
+bool full(int dice[]);
 
-bool small(int A[]);
+bool small(int dice[]);
 
-bool large(int A[]);
+bool large(int dice[]);
 
-bool yahtzee(int A[]);
+bool yahtzee(int dice[]);
 
-int chance(int A[]);
+int chance(int dice[]);
 
 int main()
 {
@@ -55,7 +55,7 @@ int main()
 
 		for(int i = 0; i < 5; i++)
 		{
-			cout << roll[i] << endl;
+			cout << roll1[i] << endl;
 		}
 
 	  if(trip(roll1) == true)
@@ -131,7 +131,7 @@ int main()
 	  {
 	    cout << "You have rolled a 4 of a Kind." << endl;
 			chance(roll2) == pp2;
-			cout << pp2 "points!" << endl;
+			cout << pp2 << "points!" << endl;
 	  }
 	  else if(small(roll2) == true)
 	  {
@@ -149,7 +149,7 @@ int main()
 		{
 			cout << "You have rolled a full house" << endl;
 			pp2 = pp2+25;
-			cout << pp2 "points!" << endl;
+			cout << pp2 << "points!" << endl;
 		}
 		else if(yahtzee(roll2)== true)
 		{
@@ -163,9 +163,9 @@ int main()
 			chance(roll2) == pp2;
 			cout << pp2 << "points!" << endl;
 		}
-		cout << "Are you ready to play the next round? (y/n)"
+		cout << "Are you ready to play the next round? (y/n)";
 		cin >> con;
-		while(con != y)
+		while(con != 'y')
 		{
 			cout << "how about now: ";
 			cin >> con;
@@ -182,23 +182,23 @@ void swap(int &a, int &b)
 	b = temp;
 }
 
-void incersion(int A[])
+void incersion(int dice[])
 {
 	for(int i = 1; i < 5; i++)
 	{
 		int j = i;
 
-		while((j > 0) && (A[j-1] < A[j]))
+		while((j > 0) && (dice[j-1] < dice[j]))
 		{
-			swap(A[j],A[j-1]);
+			swap(dice[j],dice[j-1]);
 			j = j - 1;
 		}
 	}
 }
 
-bool trip(A[])
+bool trip(dice[])
 {
-	if(A[0]==A[2] || A[1] == A[3] || A[2] == A[4])
+	if(dice[0]==dice[2] || dice[1] == dice[3] || dice[2] == dice[4])
 	{
 		return true;
 	}
@@ -208,9 +208,9 @@ bool trip(A[])
 	}
 }
 
-bool quad(A[])
+bool quad(dice[])
 {
-	if(A[0]==A[3] || A[1] == A[4])
+	if(dice[0]==dice[3] || dice[1] == dice[4])
 	{
 		return true;
 	}
@@ -220,9 +220,9 @@ bool quad(A[])
 	}
 }
 
-bool full(A[])
+bool full(dice[])
 {
-	if(A[0]==A[4])
+	if(dice[0]==dice[4])
 	{
 		return true;
 	}
@@ -232,9 +232,9 @@ bool full(A[])
 	}
 }
 
-bool small(A[])
+bool small(dice[])
 {
-	if(A[0]==A[0+3] || A[1] == A[1+3] || A[2] == A[2+3])
+	if(dice[0]==dice[0+3] || dice[1] == dice[1+3] || dice[2] == dice[2+3])
 	{
 		return true;
 	}
@@ -244,9 +244,9 @@ bool small(A[])
 	}
 }
 
-bool large(A[])
+bool large(dice[])
 {
-	if(A[0]==A[3] || A[1] == A[4])
+	if(dice[0]==dice[3] || dice[1] == dice[4])
 	{
 		return true;
 	}
@@ -256,9 +256,9 @@ bool large(A[])
 	}
 }
 
-bool yahtzee(A[])
+bool yahtzee(dice[])
 {
-	if(A[0]==A[4])
+	if(dice[0]==dice[4])
 	{
 		return true;
 	}
@@ -270,5 +270,5 @@ bool yahtzee(A[])
 
 int chance(A[])
 {
-	return A[0]+A[1]+A[2]+A[3]+A[4];
+	return dice[0]+dice[1]+dice[2]+dice[3]+dice[4];
 }
